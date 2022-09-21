@@ -80,8 +80,7 @@ exports.getTourById = async (req, res, next) => {
 exports.updateTourById = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const tour = await updateTourByIdService(id, req.body);
-    console.log(tour);
+    const tour = await updateTourByIdService(id, req.body, { new: true });
     res.status(200).json({
       status: "success",
       message: "successfully update tour!",
