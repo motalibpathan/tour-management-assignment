@@ -10,6 +10,7 @@ router
 router.route("/tours/:id").get(toursController.getTourById);
 
 router.route("/tour/trending").get(toursController.getTrendingTours);
+
 router.route("/tour/cheapest").get(toursController.getCheapestTour);
 
 router.route("/tour/:id").patch(toursController.updateTourById);

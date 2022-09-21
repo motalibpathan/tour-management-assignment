@@ -112,3 +112,19 @@ exports.getTrendingTours = async (req, res, next) => {
     });
   }
 };
+exports.getCheapestTour = async (req, res, next) => {
+  try {
+    const result = await Tour.find().sort({ price: 1 }).limit(3);
+    res.status(200).json({
+      status: "success",
+      message: "successfully get cheapest tours!",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "failed",
+      message: "Could not find cheapest tours!",
+      error: error.message,
+    });
+  }
+};
