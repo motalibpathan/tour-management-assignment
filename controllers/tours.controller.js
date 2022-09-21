@@ -62,7 +62,9 @@ module.exports.addATour = async (req, res, next) => {
 exports.getTourById = async (req, res, next) => {
   try {
     const { id } = req.params;
+    // get tour by id
     const tour = await getTourByIdService(id);
+
     res.send({
       status: "success",
       message: "successfully get tour!",
